@@ -3,7 +3,7 @@ package ru.netology.service;
 import static org.junit.Assert.*;
 
 public class CashbackHackServiceTest {
-    ru.netology.service.CashbackHackService service = new ru.netology.service.CashbackHackService();
+    CashbackHackService service = new CashbackHackService();
 
 
     @org.junit.Test
@@ -34,5 +34,36 @@ public class CashbackHackServiceTest {
     @org.junit.Test
     public void testRemainCriticalPath() {
         org.junit.Assert.assertEquals(600, service.remain(400));
+    }
+
+
+    @org.junit.jupiter.api.Test
+    public void testRemainBoundaryValuesTwoWithJupiter() {
+        org.junit.jupiter.api.Assertions.assertEquals(1000, service.remain(0));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testRemainBoundaryValuesThreeWithJupiter() {
+        org.junit.jupiter.api.Assertions.assertEquals(999, service.remain(1));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testRemainBoundaryValuesFourWithJupiter() {
+        org.junit.jupiter.api.Assertions.assertEquals(1, service.remain(999));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testRemainBoundaryValuesFiveWithJupiter() {
+        org.junit.jupiter.api.Assertions.assertEquals(0, service.remain(1000));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testRemainBoundaryValuesSixWithJupiter() {
+        org.junit.jupiter.api.Assertions.assertEquals(999, service.remain(1001));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testRemainCriticalPathWithJupiter() {
+        org.junit.jupiter.api.Assertions.assertEquals(600, service.remain(400));
     }
 }
